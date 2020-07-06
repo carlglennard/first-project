@@ -22,16 +22,6 @@ def btn():
     btn = Button(root, text="Open new game", command=open).pack()
 
 
-def exitbtn():
-    global exitbtn
-    exitbtn = Button(root, text="Exit game", command=root.destroy()).pack()
-
-
-def restartbtn():
-    global restartbtn
-    restartbtn = Button(root, text="Restart game", command=restart).pack()
-
-
 def click():
     global score
     score+=1
@@ -51,17 +41,11 @@ def timer():
         root.after(1000, timer)
     elif seconds == 10:
         bt_click.config(state= DISABLED)
-        tkinter.messagebox.showinfo(title=None, message="Congratulations! " "You have scored " +str(score)+ " points!")
+        tkinter.messagebox.showinfo(title=None, message="Congratulations!" "You have scored " +str(score)+ " points!")
 
 
 bt_click = Button(root, text="Click here!", command=click, padx= 15, pady=10)
 bt_click.grid(row=0, column=3, padx=10, pady=10, columnspan=5)
-
-bt_exitbtn = Button(root, text="Close game", command=exitbtn, padx= 15, pady=10)
-bt_exitbtn.grid(row=6, column=3, padx=10, pady=10, columnspan=5)
-
-bt_restartbtn = Button(root, text="Restart game", command=restartbtn, padx= 15, pady=10)
-bt_restartbtn.grid(row=8, column=3, padx=10, pady=10, columnspan=5,)
 
 root.after(1000, timer)
 
